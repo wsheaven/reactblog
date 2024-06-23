@@ -23,6 +23,12 @@
       "title": "New Test Post",
       "datetime": "June 22, 2024 12:57:49 PM",
       "body": "A test post that I edited\n\n"
+    },
+    {
+      "id": 6,
+      "title": "This is a new Post that I am making within the blog ",
+      "datetime": "June 22, 2024 9:00:39 PM",
+      "body": "Woah this is soooo cool, I can totally make it here and it will insert it into the database. Epic"
     }
   ]
 }

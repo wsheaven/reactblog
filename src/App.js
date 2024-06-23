@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import api from './api/posts'
 import EditPost from './EditPost';
+import useAxiosFetch from './UseAxiosFetch';
 
 
 function App() {
@@ -21,25 +22,34 @@ function App() {
   const [editBody, setEditBody] = useState('');
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await api.get('/posts');
-        setPosts(response.data);
-      } catch (err) {
-        if (err.response) {
-          // Not in the 200 response range 
-          console.log(err.response.data);
-          console.log(err.response.status);
-          console.log(err.response.headers);
-        } else {
-          console.log(`Error: ${err.message}`);
-        }
-      }
-    }
+  const {data, fetchError, isLoading} = useAxiosFetch('http://localhost:3500/posts')
 
-    fetchPosts();
-  }, [])
+  useEffect(() => {
+    setPosts(data)
+  }, [data])
+
+
+  // This is an example of how to make a api call to get posts. See above 
+  // on using a custom axios hook to get data
+  // useEffect(() => {
+  //   const fetchPosts = async () => {
+  //     try {
+  //       const response = await api.get('/posts');
+  //       setPosts(response.data);
+  //     } catch (err) {
+  //       if (err.response) {
+  //         // Not in the 200 response range 
+  //         console.log(err.response.data);
+  //         console.log(err.response.status);
+  //         console.log(err.response.headers);
+  //       } else {
+  //         console.log(`Error: ${err.message}`);
+  //       }
+  //     }
+  //   }
+
+  //   fetchPosts();
+  // }, [])
 
   useEffect(() => {
     const filteredResults = posts.filter((post) =>
@@ -100,7 +110,10 @@ function App() {
         search={search}
         setSearch={setSearch}
       />}>
-        <Route index element={<Home posts={searchResults} />} />
+        <Route index element={<Home
+        fetchError={fetchError}
+        isLoading={isLoading}
+        posts={searchResults} />} />
         <Route path="post">
           <Route index element={<NewPost
             handleSubmit={handleSubmit}
