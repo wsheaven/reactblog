@@ -1,12 +1,6 @@
 {
   "posts": [
     {
-      "id": 2,
-      "title": "Second post",
-      "datetime": "July 16, 2021 11:47:48 AM",
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. two"
-    },
-    {
       "id": 3,
       "title": "Number Three",
       "datetime": "July 16, 2021 11:48:01 AM",
@@ -19,16 +13,10 @@
       "body": "Some more testing paragraphs!"
     },
     {
-      "id": 5,
-      "title": "New Test Post",
-      "datetime": "June 22, 2024 12:57:49 PM",
-      "body": "A test post that I edited\n\n"
-    },
-    {
       "id": 6,
-      "title": "This is a new Post that I am making within the blog ",
-      "datetime": "June 22, 2024 9:00:39 PM",
-      "body": "Woah this is soooo cool, I can totally make it here and it will insert it into the database. Epic"
+      "title": "test after refactor",
+      "datetime": "June 24, 2024 2:34:56 PM",
+      "body": "Woah this is way cleaner "
     }
   ]
 }
